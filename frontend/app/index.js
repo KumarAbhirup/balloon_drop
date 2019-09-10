@@ -29,6 +29,7 @@ let endButton
 // Score data
 let startingLives
 let scoreGain
+let highScore
 let score = 0
 
 // Data taken from Game Settings
@@ -111,6 +112,44 @@ function preload() {
   lives = startingLives
 }
 
+// Instantiate objects
+function instantiate() {
+  balloon = new Balloon(
+    { x: width / 2, y: objSize * 5 },
+    { width: 4 * objSize, height: 8 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgBalloon,
+    }
+  )
+  shootingBalloon = new Balloon(
+    { x: width / 2, y: balloon.sizing.height + objSize },
+    { width: objSize, height: 2 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgShootingBalloon,
+      color: { r: 255, g: 255, b: 255 },
+      rotate: true,
+    }
+  )
+  house = new GameObject(
+    { x: width / 2, y: height - objSize * 3.4 },
+    { width: 6.5 * objSize, height: 7 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgHouse,
+    }
+  )
+  runner = new Runner(
+    { x: width / 2, y: height - objSize * 2 },
+    { width: 3 * objSize, height: 4 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgMoverStill,
+    }
+  )
+}
+
 // Setup your props
 function setup() {
   width = window.innerWidth
@@ -142,41 +181,7 @@ function setup() {
 
   gameBeginning = true
 
-  // Instantiate objects
-  balloon = new Balloon(
-    { x: width / 2, y: objSize * 5 },
-    { width: 4 * objSize, height: 8 * objSize },
-    {
-      shape: 'rectangle',
-      image: imgBalloon,
-    }
-  )
-  shootingBalloon = new Balloon(
-    { x: width / 2, y: balloon.sizing.height + objSize },
-    { width: objSize, height: 2 * objSize },
-    {
-      shape: 'rectangle',
-      image: imgShootingBalloon,
-      color: { r: 255, g: 255, b: 255 },
-      rotate: true,
-    }
-  )
-  house = new GameObject(
-    { x: width / 2, y: height - objSize * 2 },
-    { width: 4.5 * objSize, height: 4 * objSize },
-    {
-      shape: 'rectangle',
-      image: imgHouse,
-    }
-  )
-  runner = new Runner(
-    { x: width / 2, y: height - objSize * 2 },
-    { width: 3 * objSize, height: 4 * objSize },
-    {
-      shape: 'rectangle',
-      image: imgMoverStill,
-    }
-  )
+  instantiate()
 
   /**
    * Load music asynchronously and play once it's loaded
@@ -235,6 +240,10 @@ function loseLife() {
   if (lives <= 0) {
     gameOver = true
     checkHighscore()
+
+    if (score > 2) {
+      goSetScore(score)
+    }
   }
 }
 
@@ -273,6 +282,9 @@ function keyPressed() {
 
 function keyReleased() {
   if (!gameOver && !gameBeginning) {
+    if (key === ' ' || keyCode === ENTER || keyCode === DOWN_ARROW) {
+      if (!shootingBalloon.shooting) balloon.shoot() // shoot by keys on desktop
+    }
   }
 }
 
@@ -288,4 +300,7 @@ function init() {
   score = 0
 
   floatingTexts = []
+
+  // Keep everyone at their original place
+  instantiate()
 }

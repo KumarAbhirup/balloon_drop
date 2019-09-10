@@ -12,6 +12,11 @@ function checkHighscore() {
   }
 }
 
+function goSetScore(currentScore) {
+  window.setScore(currentScore)
+  window.setAppView('setScore')
+}
+
 function playMusic() {
   if (sndMusic) {
     sndMusic.setVolume(0.4)
