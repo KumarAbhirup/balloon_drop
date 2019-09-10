@@ -14,6 +14,12 @@ function gamePlay() {
   if (runner.isMoving === 'left') runner.settings.image = imgMoverLeft
   if (runner.isMoving === 'right') runner.settings.image = imgMoverRight
 
+  // Draw Timer!
+  if (gameTimerEnabled) {
+    gameTimer -= 1 / frameRate()
+    drawTimer()
+  }
+
   // Balloon
   balloon.show()
   shootingBalloon.show()

@@ -7,9 +7,7 @@ let myFont // The font we'll use throughout the app
 
 let gameOver = false // If it's true the game will render the main menu
 let gameBeginning = true // Should be true only before the user starts the game for the first time
-const canEnd = false
-
-let floatingTexts = []
+let canEnd = false
 
 // Game Objects
 let house
@@ -19,6 +17,9 @@ let runner
 
 // Game Stuffs
 let shootingBalloons = []
+let particles = []
+let floatingTexts = []
+let comboTexts = []
 
 // Buttons
 let playButton
@@ -49,12 +50,21 @@ let sndMusic
 let sndTap
 let sndMatch
 let sndEnd
+let sndRunnerHit
 
 let soundEnabled = true
 let canMute = true
 
 let soundImage
 let muteImage
+
+// Timer
+let startingGameTimer
+let gameTimer
+let gameTimerEnabled = false
+let gameOverRectangleHeight = 0 // for game over animation
+
+let canScore = false
 
 // Size stuff
 let objSize // Base size modifier of all objects, calculated based on screen size
@@ -105,11 +115,24 @@ function preload() {
   if (Koji.config.sounds.tap) sndTap = loadSound(Koji.config.sounds.tap)
   if (Koji.config.sounds.match) sndMatch = loadSound(Koji.config.sounds.match)
   if (Koji.config.sounds.end) sndEnd = loadSound(Koji.config.sounds.end)
+  if (Koji.config.sounds.enemyHit)
+    sndRunnerHit = loadSound(Koji.config.sounds.enemyHit)
 
   // Load settings from Game Settings
   scoreGain = parseInt(Koji.config.strings.scoreGain)
   startingLives = parseInt(Koji.config.strings.lives)
+  comboTexts = Koji.config.strings.comboText.split(',')
+  startingGameTimer = parseInt(Koji.config.strings.gameTimer)
   lives = startingLives
+
+  // Timer stuff
+  if (startingGameTimer <= 0) {
+    gameTimer = 99999
+    gameTimerEnabled = false
+  } else {
+    gameTimer = startingGameTimer
+    gameTimerEnabled = true
+  }
 }
 
 // Instantiate objects
@@ -260,6 +283,13 @@ function touchStarted() {
   if (!gameOver && !gameBeginning) {
     // InGame
     touching = true
+
+    if (canEnd) {
+      gameOver = true
+      if (score > 2) {
+        goSetScore(score)
+      }
+    }
   }
 }
 
@@ -283,7 +313,7 @@ function keyPressed() {
 function keyReleased() {
   if (!gameOver && !gameBeginning) {
     if (key === ' ' || keyCode === ENTER || keyCode === DOWN_ARROW) {
-      if (!shootingBalloon.shooting) balloon.shoot() // shoot by keys on desktop
+      if (!canEnd && !shootingBalloon.shooting) balloon.shoot() // shoot by keys on desktop
     }
   }
 }
@@ -299,8 +329,20 @@ function init() {
   highscoreGained = false
   score = 0
 
+  gameTimer = startingGameTimer
+  gameOverRectangleHeight = 0
+
   floatingTexts = []
+  particles = []
 
   // Keep everyone at their original place
   instantiate()
+
+  canScore = false
+  canEnd = false
+
+  // set score to zero if score increases mistakenly
+  setTimeout(() => {
+    score = 0
+  }, 100)
 }

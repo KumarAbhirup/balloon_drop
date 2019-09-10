@@ -6,6 +6,7 @@
     "instructions2": "Hit or Miss and gain points!",
     "instructions3": "Arrow keys to move the shuttle, Click to drop loon.",
     "gameOverText": "GAME OVER",
+    "gameTimer": "90",
     "highScoreText": "High Score:",
     "playButtonText": "PLAY NOW",
     "scoreText": "Score:",
@@ -75,6 +76,12 @@
         "key": "playButtonText",
         "name": "Play Button Text",
         "description": "Label on the Play Button",
+        "type": "text"
+      },
+      {
+        "key": "gameTimer",
+        "name": "Game Timer",
+        "description": "How many seconds before game should over?",
         "type": "text"
       },
       {
@@ -195,6 +202,12 @@
         "key": "fireCooldown",
         "name": "Fire Cooldown",
         "description": "How much time in MILISECONDS between each projectile",
+        "type": "text"
+      },
+      {
+        "key": "comboText",
+        "name": "Combo Texts",
+        "description": "Comma separated string of texts that appear after some game success.",
         "type": "text"
       }
     ]

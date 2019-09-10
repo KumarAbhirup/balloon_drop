@@ -4,6 +4,8 @@
     "textColor": "#ffffff",
     "playButtonTextColor": "#0a0a31",
     "playButtonColor": "#ffda5a",
+    "timerText": "#ffff00",
+    "gameOverRectangleColor": "#222222",
     "buttonTextColor": "#222222",
     "buttonColor": "#2CECF5",
     "scoreColor": "#ffda5a",
@@ -14,7 +16,8 @@
     "playButtonClickColor": "#ffda5a",
     "buttonHoverColor": "#23bcc5",
     "buttonClickColor": "#2CECF5",
-    "lifeColor": "#d54b8c"
+    "lifeColor": "#d54b8c",
+    "floatingTextColor": "#ffff00"
   },
   "@@editor": [{
     "key": "colors",
@@ -29,6 +32,11 @@
       {
         "key": "titleColor",
         "name": "Game Title Color",
+        "type": "color"
+      },
+      {
+        "key": "timerText",
+        "name": "Game Timer Text Color",
         "type": "color"
       },
       {
@@ -99,6 +107,16 @@
       {
         "key": "enemyNumberColor",
         "name": "Enemy Number Color",
+        "type": "color"
+      },
+      {
+        "key": "floatingTextColor",
+        "name": "Floating Text Color that notifies the user",
+        "type": "color"
+      },
+      {
+        "key": "gameOverRectangleColor",
+        "name": "Game Over Rectangle Background Color",
         "type": "color"
       }
     ]
