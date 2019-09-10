@@ -20,6 +20,7 @@ function gamePlay() {
 
   // Runner
   runner.show()
+  runner.moveRandomly()
 
   // If key pressed
   if (keyIsPressed) {
@@ -28,8 +29,8 @@ function gamePlay() {
       balloon.body.position.x -= Smooth(0, 10, 2)
       shootingBalloon.body.position.x -= Smooth(0, 10, 2)
 
-      runner.body.position.x -= Smooth(0, 10, 2)
-      runner.isMoving = 'left'
+      // runner.body.position.x -= Smooth(0, 10, 2)
+      // runner.isMoving = 'left'
 
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = width
@@ -41,8 +42,8 @@ function gamePlay() {
       balloon.body.position.x += Smooth(0, 10, 2)
       shootingBalloon.body.position.x += Smooth(0, 10, 2)
 
-      runner.body.position.x += Smooth(0, 10, 2)
-      runner.isMoving = 'right'
+      // runner.body.position.x += Smooth(0, 10, 2)
+      // runner.isMoving = 'right'
 
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = 0
@@ -50,7 +51,7 @@ function gamePlay() {
       }
     }
   } else {
-    runner.isMoving = false
+    // runner.isMoving = false
   }
 
   // Score draw
