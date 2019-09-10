@@ -34,8 +34,13 @@ class Runner extends GameObject {
 
     this.velocity.x = Smooth(this.velocity.x, this.goalVelocity.x, 1)
 
-    if (this.velocity.x < 0) this.isMoving = 'left'
-    if (this.velocity.x > 0) this.isMoving = 'right'
+    if (this.velocity.x < -2) {
+      this.isMoving = 'left'
+    } else if (this.velocity.x > 2) {
+      this.isMoving = 'right'
+    } else {
+      this.isMoving = null
+    }
 
     this.body.position = createVector(
       this.body.position.x,

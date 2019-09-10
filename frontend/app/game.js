@@ -22,15 +22,19 @@ function gamePlay() {
   runner.show()
   runner.moveRandomly()
 
-  // If key pressed
+  // House
+  house.show()
+
+  // Reload Runner
+  if (runner.wentOutOfFrame()) {
+    runner.body.position.x = width / 2
+  }
+
+  // move by keys on desktop
   if (keyIsPressed) {
-    // move by keys on desktop
     if (keyCode === LEFT_ARROW) {
       balloon.body.position.x -= Smooth(0, 10, 2)
       shootingBalloon.body.position.x -= Smooth(0, 10, 2)
-
-      // runner.body.position.x -= Smooth(0, 10, 2)
-      // runner.isMoving = 'left'
 
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = width
@@ -42,16 +46,11 @@ function gamePlay() {
       balloon.body.position.x += Smooth(0, 10, 2)
       shootingBalloon.body.position.x += Smooth(0, 10, 2)
 
-      // runner.body.position.x += Smooth(0, 10, 2)
-      // runner.isMoving = 'right'
-
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = 0
         shootingBalloon.body.position.x = 0
       }
     }
-  } else {
-    // runner.isMoving = false
   }
 
   // Score draw

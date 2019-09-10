@@ -2,6 +2,7 @@
   "images": {
     "balloonImage": "https://i.ibb.co/hW764vr/hot-Balloon.png",
     "shootingBalloonImage": "https://i.ibb.co/LpGdg2q/droplet.png",
+    "houseImage": "https://i.ibb.co/d7m5dM4/house.png",
     "notMoving": "https://i.ibb.co/cxyxfRS/jerry-standng.png",
     "movingLeft": "https://i.imgur.com/AWC84BW.png",
     "movingRight": "https://i.imgur.com/AD0m4GY.png",
@@ -38,6 +39,12 @@
         "key": "shootingBalloonImage",
         "name": "Image of the balloon that drops on target",
         "description": "Ideal size: 100x194",
+        "type": "image"
+      },
+      {
+        "key": "houseImage",
+        "name": "The house from which the rat comes out.",
+        "description": "Ideal size: 120x100",
         "type": "image"
       },
       {

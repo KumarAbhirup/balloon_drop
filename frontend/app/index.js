@@ -12,6 +12,7 @@ const canEnd = false
 let floatingTexts = []
 
 // Game Objects
+let house
 let balloon
 let shootingBalloon
 let runner
@@ -33,6 +34,7 @@ let score = 0
 // Data taken from Game Settings
 
 // Images
+let imgHouse
 let imgBalloon
 let imgShootingBalloon
 let imgMoverLeft
@@ -86,6 +88,7 @@ function preload() {
   // Load images
   imgBalloon = loadImage(Koji.config.images.balloonImage)
   imgShootingBalloon = loadImage(Koji.config.images.shootingBalloonImage)
+  imgHouse = loadImage(Koji.config.images.houseImage)
   imgMoverLeft = loadImage(Koji.config.images.movingLeft)
   imgMoverRight = loadImage(Koji.config.images.movingRight)
   imgMoverStill = loadImage(Koji.config.images.notMoving)
@@ -156,6 +159,14 @@ function setup() {
       image: imgShootingBalloon,
       color: { r: 255, g: 255, b: 255 },
       rotate: true,
+    }
+  )
+  house = new GameObject(
+    { x: width / 2, y: height - objSize * 2 },
+    { width: 4.5 * objSize, height: 4 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgHouse,
     }
   )
   runner = new Runner(
