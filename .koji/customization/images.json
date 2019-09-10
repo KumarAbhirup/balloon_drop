@@ -1,5 +1,10 @@
 {
   "images": {
+    "balloonImage": "https://i.ibb.co/hW764vr/hot-Balloon.png",
+    "shootingBalloonImage": "https://i.ibb.co/LpGdg2q/droplet.png",
+    "notMoving": "https://i.ibb.co/cxyxfRS/jerry-standng.png",
+    "movingLeft": "https://i.imgur.com/AWC84BW.png",
+    "movingRight": "https://i.imgur.com/AD0m4GY.png",
     "soundImage": "https://i.imgur.com/rtFppa8.png",
     "muteImage": "https://i.imgur.com/AR7C733.png",
     "lifeIcon": "https://i.imgur.com/39e9e4h.png",
@@ -24,9 +29,33 @@
     "icon": "💪🏻",
     "source": "images.json",
     "fields": [{
-        "key": "soundImage",
-        "name": "Sound Icon",
-        "description": "Ideal size: 32x32",
+        "key": "balloonImage",
+        "name": "Image of the balloon that shoots",
+        "description": "Ideal size: 173x291",
+        "type": "image"
+      },
+      {
+        "key": "shootingBalloonImage",
+        "name": "Image of the balloon that drops on target",
+        "description": "Ideal size: 100x194",
+        "type": "image"
+      },
+      {
+        "key": "notMoving",
+        "name": "When the mover stands still.",
+        "description": "Ideal size: 389x320",
+        "type": "image"
+      },
+      {
+        "key": "moverLeft",
+        "name": "When the mover goes left, it looks like this.",
+        "description": "Ideal size: 389x320",
+        "type": "image"
+      },
+      {
+        "key": "moverRight",
+        "name": "When the mover goes right, it looks like this.",
+        "description": "Ideal size: 389x320",
         "type": "image"
       },
       {

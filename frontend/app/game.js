@@ -10,6 +10,48 @@ function gamePlay() {
   }
 
   // InGame UI
+  if (!runner.isMoving) runner.settings.image = imgMoverStill
+  if (runner.isMoving === 'left') runner.settings.image = imgMoverLeft
+  if (runner.isMoving === 'right') runner.settings.image = imgMoverRight
+
+  // Balloon
+  balloon.show()
+  shootingBalloon.show()
+
+  // Runner
+  runner.show()
+
+  // If key pressed
+  if (keyIsPressed) {
+    // move by keys on desktop
+    if (keyCode === LEFT_ARROW) {
+      balloon.body.position.x -= Smooth(0, 10, 2)
+      shootingBalloon.body.position.x -= Smooth(0, 10, 2)
+
+      runner.body.position.x -= Smooth(0, 10, 2)
+      runner.isMoving = 'left'
+
+      if (balloon.wentOutOfFrame()) {
+        balloon.body.position.x = width
+        shootingBalloon.body.position.x = width
+      }
+    }
+
+    if (keyCode === RIGHT_ARROW) {
+      balloon.body.position.x += Smooth(0, 10, 2)
+      shootingBalloon.body.position.x += Smooth(0, 10, 2)
+
+      runner.body.position.x += Smooth(0, 10, 2)
+      runner.isMoving = 'right'
+
+      if (balloon.wentOutOfFrame()) {
+        balloon.body.position.x = 0
+        shootingBalloon.body.position.x = 0
+      }
+    }
+  } else {
+    runner.isMoving = false
+  }
 
   // Score draw
   const scoreX = width - objSize / 2

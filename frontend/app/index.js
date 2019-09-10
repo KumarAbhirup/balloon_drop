@@ -12,6 +12,12 @@ const canEnd = false
 let floatingTexts = []
 
 // Game Objects
+let balloon
+let shootingBalloon
+let runner
+
+// Game Stuffs
+let shootingBalloons = []
 
 // Buttons
 let playButton
@@ -27,6 +33,11 @@ let score = 0
 // Data taken from Game Settings
 
 // Images
+let imgBalloon
+let imgShootingBalloon
+let imgMoverLeft
+let imgMoverRight
+let imgMoverStill
 let imgLife
 let imgBackground
 
@@ -73,6 +84,11 @@ function preload() {
   }
 
   // Load images
+  imgBalloon = loadImage(Koji.config.images.balloonImage)
+  imgShootingBalloon = loadImage(Koji.config.images.shootingBalloonImage)
+  imgMoverLeft = loadImage(Koji.config.images.movingLeft)
+  imgMoverRight = loadImage(Koji.config.images.movingRight)
+  imgMoverStill = loadImage(Koji.config.images.notMoving)
   imgLife = loadImage(Koji.config.images.lifeIcon)
   soundImage = loadImage(Koji.config.images.soundImage)
   muteImage = loadImage(Koji.config.images.muteImage)
@@ -122,6 +138,34 @@ function setup() {
   endButton = new EndButton()
 
   gameBeginning = true
+
+  // Instantiate objects
+  balloon = new Balloon(
+    { x: width / 2, y: objSize * 5 },
+    { width: 4 * objSize, height: 8 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgBalloon,
+    }
+  )
+  shootingBalloon = new Balloon(
+    { x: width / 2, y: balloon.sizing.height + objSize },
+    { width: objSize, height: 2 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgShootingBalloon,
+      color: { r: 255, g: 255, b: 255 },
+      rotate: true,
+    }
+  )
+  runner = new Runner(
+    { x: width / 2, y: height - objSize * 2 },
+    { width: 3 * objSize, height: 4 * objSize },
+    {
+      shape: 'rectangle',
+      image: imgMoverStill,
+    }
+  )
 
   /**
    * Load music asynchronously and play once it's loaded
