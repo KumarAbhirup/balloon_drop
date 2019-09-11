@@ -55,7 +55,7 @@ function gamePlay() {
     ) &&
     !runner.didTouch(
       {
-        sizing: { width: house.sizing.width, height: house.sizing.height },
+        sizing: { radius: house.sizing.radius },
         body: house.body,
       },
       'circle'
@@ -97,6 +97,17 @@ function gamePlay() {
       'circle'
     )
   ) {
+    floatingTexts.push(
+      new OldFloatingText(
+        width / 2,
+        height / 2 + height * 0.08,
+        Koji.config.strings.balloonCollidedHouse,
+        Koji.config.colors.negativeFloatingTextColor,
+        objSize * 1.2,
+        2
+      )
+    )
+
     addScore(
       -2,
       imgHouse,

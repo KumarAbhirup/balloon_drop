@@ -6,6 +6,7 @@
     "instructions2": "Hit or Miss and gain points!",
     "instructions3": "Arrow keys to move the shuttle, Click to drop loon.",
     "gameStartedFloatingText": "Shoot the Jerry, Not your House!",
+    "balloonCollidedHouse": "Wudjyu ever shoot your own house?",
     "gameOverText": "GAME OVER",
     "gameTimer": "90",
     "highScoreText": "High Score:",
@@ -118,6 +119,12 @@
         "key": "lifeText",
         "name": "Life Text",
         "description": "When you collect a life",
+        "type": "text"
+      },
+      {
+        "key": "balloonCollidedHouse",
+        "name": "Balloon Collided House Text",
+        "description": "Text that appears when you mistakenly shoot the house.",
         "type": "text"
       },
       {

@@ -341,7 +341,7 @@ function init() {
   floatingTexts.push(
     new OldFloatingText(
       width / 2,
-      height / 2 + height * 0.08,
+      height / 2 - height * 0.01,
       Koji.config.strings.gameStartedFloatingText,
       Koji.config.colors.floatingTextColor,
       objSize * 1.2,
