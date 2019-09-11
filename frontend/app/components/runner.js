@@ -59,7 +59,7 @@ class Runner extends GameObject {
   reload = () => {
     runner = null
     runner = new Runner(
-      { x: width / 2, y: height - objSize * 2 },
+      { x: width / 2, y: height - objSize * 3 },
       { width: 3 * objSize, height: 4 * objSize },
       {
         shape: 'rectangle',

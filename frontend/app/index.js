@@ -34,7 +34,6 @@ let highScore
 let score = 0
 
 // Data taken from Game Settings
-
 // Images
 let imgHouse
 let imgBalloon
@@ -161,7 +160,7 @@ function instantiate() {
     }
   )
   house = new GameObject(
-    { x: width / 2, y: height - objSize * 3 },
+    { x: width / 2, y: height - objSize * 3.8 },
     { radius: 3 * objSize },
     {
       shape: 'circle',
@@ -169,7 +168,7 @@ function instantiate() {
     }
   )
   runner = new Runner(
-    { x: width / 2, y: height - objSize * 2 },
+    { x: width / 2, y: height - objSize * 3 },
     { width: 3 * objSize, height: 4 * objSize },
     {
       shape: 'rectangle',
@@ -309,6 +308,10 @@ function touchEnded() {
   }
 
   touching = false
+
+  if (!gameOver && !gameBeginning) {
+    if (isMobile && !canEnd && !shootingBalloon.shooting) balloon.shoot() // shoot by release on mobile
+  }
 }
 
 // Key pressed and released

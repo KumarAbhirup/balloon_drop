@@ -175,6 +175,11 @@ function gamePlay() {
     }
   }
 
+  if (touching && isMobile) {
+    balloon.body.position.x = mouseX
+    shootingBalloon.body.position.x = mouseX
+  }
+
   // Score draw
   const scoreX = width - objSize / 2
   const scoreY = objSize / 3
