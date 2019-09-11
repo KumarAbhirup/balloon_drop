@@ -44,7 +44,7 @@ class Leaderboard extends Component {
                   <div className="leaderboard-title">
                     <div
                       className="leaderboard-title-text"
-                      style={{ color: Koji.config.colors.titleColor }}
+                      style={{ color: `#ffff00` }}
                     >
                       {'Top Scores'}
                     </div>
@@ -53,7 +53,7 @@ class Leaderboard extends Component {
                       onClick={() => {
                         window.setAppView('game')
                       }}
-                      style={{ color: Koji.config.colors.titleColor }}
+                      style={{ color: `#ffff00` }}
                     >
                       {'Close'}
                     </div>
