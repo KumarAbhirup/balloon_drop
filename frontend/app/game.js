@@ -169,14 +169,14 @@ function gamePlay() {
 
   // move by keys on desktop
   if (keyIsPressed) {
-    if (keyCode === LEFT_ARROW) {
+    if (keyCode === LEFT_ARROW || key === 'a') {
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = width
         shootingBalloon.body.position.x = width
       }
     }
 
-    if (keyCode === RIGHT_ARROW) {
+    if (keyCode === RIGHT_ARROW || key === 'd') {
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = 0
         shootingBalloon.body.position.x = 0
