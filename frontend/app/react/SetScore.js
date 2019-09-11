@@ -72,10 +72,7 @@ class SetScore extends Component {
               height: '100vh',
             }}
           >
-            <div
-              className="title"
-              style={{ color: Koji.config.colors.titleColor }}
-            >
+            <div className="title" style={{ color: `#ffff00` }}>
               {'Submit To Leaderboard'}
             </div>
 
@@ -83,32 +80,26 @@ class SetScore extends Component {
               id="leaderboard-set-score"
               style={{
                 backgroundColor: Koji.config.colors.backgroundColor,
-                borderColor: Koji.config.colors.titleColor,
+                borderColor: `#ffff00`,
               }}
             >
               <form id="score-form" onSubmit={this.handleSubmit}>
                 <div className="input-wrapper">
-                  <label
-                    className="label"
-                    style={{ color: Koji.config.colors.titleColor }}
-                  >
+                  <label className="label" style={{ color: `#ffff00` }}>
                     {'Score'}
                   </label>
                   <input
                     disabled
                     value={this.props.score}
                     style={{
-                      color: Koji.config.colors.titleColor,
-                      borderColor: Koji.config.colors.titleColor,
+                      color: `#ffff00`,
+                      borderColor: `#ffff00`,
                     }}
                   />
                 </div>
 
                 <div className="input-wrapper">
-                  <label
-                    className="label"
-                    style={{ color: Koji.config.colors.titleColor }}
-                  >
+                  <label className="label" style={{ color: `#ffff00` }}>
                     {'Name'}
                   </label>
                   <input
@@ -118,8 +109,8 @@ class SetScore extends Component {
                     type="text"
                     value={this.state.name}
                     style={{
-                      color: Koji.config.colors.titleColor,
-                      borderColor: Koji.config.colors.titleColor,
+                      color: `#ffff00`,
+                      borderColor: `#ffff00`,
                     }}
                     ref={input => {
                       this.nameInput = input
@@ -129,7 +120,7 @@ class SetScore extends Component {
 
                 {Koji.config.strings.emailInputEnabled ? (
                   <div className="input-wrapper">
-                    <label style={{ color: Koji.config.colors.titleColor }}>
+                    <label style={{ color: `#ffff00` }}>
                       {'Your Email Address (Private)'}
                     </label>
                     <input
@@ -139,8 +130,8 @@ class SetScore extends Component {
                       type="email"
                       value={this.state.email}
                       style={{
-                        color: Koji.config.colors.titleColor,
-                        borderColor: Koji.config.colors.titleColor,
+                        color: `#ffff00`,
+                        borderColor: `#ffff00`,
                       }}
                     />
                   </div>

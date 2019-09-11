@@ -19,7 +19,7 @@ class Leaderboard extends Component {
                 id="leaderboard"
                 style={{
                   backgroundColor: Koji.config.colors.backgroundColor,
-                  color: Koji.config.colors.titleColor,
+                  color: `#ffff00`,
                 }}
               >
                 <div className="leaderboard-loading">

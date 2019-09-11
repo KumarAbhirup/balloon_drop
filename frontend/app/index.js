@@ -271,7 +271,7 @@ function loseLife() {
     gameOver = true
     checkHighscore()
 
-    if (score > 2) {
+    if (score > 1) {
       goSetScore(score)
     }
   }
@@ -293,7 +293,7 @@ function touchStarted() {
 
     if (canEnd) {
       gameOver = true
-      if (score > 2) {
+      if (score > 1) {
         goSetScore(score)
       }
     }
