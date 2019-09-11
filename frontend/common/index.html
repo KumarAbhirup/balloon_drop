@@ -52,6 +52,9 @@
 	<!-- Prevent mobile scrolling/refreshing -->
 	<script>
 		/* eslint-disable */
+		// document.documentElement.requestFullscreen() // Use for fullscreen
+		screen.orientation.lock('landscape-primary')
+
 		document.addEventListener(
 			'touchmove',
 			function (e) {

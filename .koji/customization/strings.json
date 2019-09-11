@@ -1,10 +1,10 @@
 {
   "strings": {
     "fontFamily": "https://fonts.googleapis.com/css?family=Lilita+One",
-    "title": "🥁 Balloon Drop 💧",
-    "instructions1": "Drop the loons on the mover below!",
+    "title": "🎈 Balloon Drop 💧",
+    "instructions1": "Drop loons on Jerry and Save the house!",
     "instructions2": "Hit or Miss and gain points!",
-    "instructions3": "Arrow keys to move the shuttle, Click to drop loon.",
+    "instructions3": "Arrow keys to move the shuttle, Enter to drop loon.",
     "gameStartedFloatingText": "Shoot the Jerry, Not your House!",
     "balloonCollidedHouse": "Wudjyu ever shoot your own house?",
     "gameOverText": "GAME OVER",
