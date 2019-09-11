@@ -83,9 +83,19 @@ function gamePlay() {
         x: runner.body.position.x,
         y: runner.body.position.y,
       },
-      30,
+      isMobile ? 15 : 30,
       { floatingText: false }
     )
+
+    particlesEffect(
+      imgShootingBalloon,
+      {
+        x: shootingBalloon.body.position.x,
+        y: shootingBalloon.body.position.y,
+      },
+      5
+    )
+
     shootingBalloons.pop()
     runner.reload()
     balloon.reload()

@@ -54,6 +54,21 @@ function addScore(
   }
 }
 
+function particlesEffect(
+  particlesImage,
+  particle = { x: null, y: null },
+  particleCount = floor(random(2, 15))
+) {
+  // Spawn particles
+  if (particle.y > 0) {
+    for (let i = 0; i < particleCount; i += 1) {
+      particles.push(
+        new Particle(particle.x, particle.y, particlesImage) // you may use `imgLife` for the image parameter if the balloon images you have aren't good particles
+      )
+    }
+  }
+}
+
 function goSetScore(currentScore) {
   window.setScore(currentScore)
   window.setAppView('setScore')
