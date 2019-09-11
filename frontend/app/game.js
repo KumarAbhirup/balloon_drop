@@ -3,10 +3,11 @@
 
 // This function runs when the Game Screen is ON
 function gamePlay() {
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < floatingTexts.length; i++) {
-    floatingTexts[i].update()
-    floatingTexts[i].render()
+  if (gameStart) {
+    for (let i = 0; i < floatingTexts.length; i += 1) {
+      floatingTexts[i].update()
+      floatingTexts[i].render()
+    }
   }
 
   // InGame UI
@@ -33,7 +34,7 @@ function gamePlay() {
   shootingBalloon.show()
 
   balloon.body.position.x += Smooth(0, 10, 2) * balloon.moveDir
-  shootingBalloon.body.position.x += Smooth(0, 10, 2) * shootingBalloon.moveDir
+  shootingBalloon.body.position.x += Smooth(0, 10, 2) * balloon.moveDir
 
   // Runner
   runner.show()
@@ -182,9 +183,27 @@ function gamePlay() {
     }
   }
 
-  if (touching && isMobile) {
-    balloon.body.position.x = mouseX
-    shootingBalloon.body.position.x = mouseX
+  if (
+    collidePointRect(
+      // Check if user is touching balloon to drag
+      mouseX,
+      mouseY,
+      balloon.body.position.x - balloon.sizing.width / 2, // because the rectangle is assumed as rectMode(CORNER)
+      balloon.body.position.y - balloon.sizing.height / 2,
+      balloon.sizing.width + balloon.sizing.width,
+      balloon.sizing.height
+    )
+  ) {
+    isBalloonDraggable = true
+  } else {
+    isBalloonDraggable = false
+  }
+
+  if (touching) {
+    if (isMobile && isBalloonDraggable) {
+      balloon.body.position.x = mouseX
+      shootingBalloon.body.position.x = mouseX
+    }
   }
 
   // Score draw

@@ -8,6 +8,7 @@ let myFont // The font we'll use throughout the app
 let gameOver = false // If it's true the game will render the main menu
 let gameBeginning = true // Should be true only before the user starts the game for the first time
 let canEnd = false
+let gameStart = false
 
 // Game Objects
 let house
@@ -80,6 +81,7 @@ const gameSize = 18
 // Mobile
 let isMobile = false
 let touching = false // Whether the user is currently touching/clicking
+let isBalloonDraggable = false
 
 // Load assets
 function preload() {
@@ -384,5 +386,6 @@ function init() {
   // set score to zero if score increases mistakenly
   setTimeout(() => {
     score = 0
-  }, 100)
+    gameStart = true
+  }, 1000)
 }
