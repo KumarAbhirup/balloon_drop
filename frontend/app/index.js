@@ -52,6 +52,7 @@ let sndMatch
 let sndEnd
 let sndRunnerHit
 let sndHouseHit
+let sndLife
 
 let soundEnabled = true
 let canMute = true
@@ -120,6 +121,7 @@ function preload() {
     sndRunnerHit = loadSound(Koji.config.sounds.enemyHit)
   if (Koji.config.sounds.explosion)
     sndHouseHit = loadSound(Koji.config.sounds.explosion)
+  if (Koji.config.sounds.life) sndLife = loadSound(Koji.config.sounds.life)
 
   // Load settings from Game Settings
   scoreGain = parseInt(Koji.config.strings.scoreGain)

@@ -105,25 +105,25 @@ function gamePlay() {
       playMusic(sndHouseHit, 10, false)
     )
 
-    floatingTexts.push(
-      new OldFloatingText(
-        width / 2,
-        height / 2 + height * 0.08,
-        Koji.config.strings.balloonCollidedHouse,
-        Koji.config.colors.negativeFloatingTextColor,
-        objSize * 1.2,
-        2
-      )
-    )
+    // floatingTexts.push(
+    //   new OldFloatingText(
+    //     width / 2,
+    //     height / 2 + height * 0.08,
+    //     Koji.config.strings.balloonCollidedHouse,
+    //     Koji.config.colors.floatingTextColor,
+    //     objSize * 1.2,
+    //     2
+    //   )
+    // )
 
     addScore(
       -2,
-      imgHouse,
+      imgLife,
       {
-        x: house.body.position.x,
-        y: house.body.position.y,
+        x: shootingBalloon.body.position.x,
+        y: shootingBalloon.body.position.y,
       },
-      30,
+      15,
       { floatingText: true }
     )
 
@@ -140,7 +140,13 @@ function gamePlay() {
     if (thisShootingBalloon.shooting) thisShootingBalloon.fire()
 
     if (thisShootingBalloon.wentOutOfFrame()) {
+      // eslint-disable-next-line no-loop-func
+      sndLife = loadSound(Koji.config.sounds.life, () =>
+        playMusic(sndLife, 10, false)
+      )
+
       loseLife()
+
       shootingBalloons.splice(i, 1)
       balloon.reload()
     }
