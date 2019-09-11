@@ -17,7 +17,8 @@
     "buttonHoverColor": "#23bcc5",
     "buttonClickColor": "#2CECF5",
     "lifeColor": "#d54b8c",
-    "floatingTextColor": "#ffff00"
+    "floatingTextColor": "#ffff00",
+    "negativeFloatingTextColor": "#ff0000"
   },
   "@@editor": [{
     "key": "colors",
@@ -117,6 +118,11 @@
       {
         "key": "gameOverRectangleColor",
         "name": "Game Over Rectangle Background Color",
+        "type": "color"
+      },
+      {
+        "key": "negativeFloatingTextColor",
+        "name": "Floating Text Color that appears after losing points.",
         "type": "color"
       }
     ]

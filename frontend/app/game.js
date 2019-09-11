@@ -20,6 +20,14 @@ function gamePlay() {
     drawTimer()
   }
 
+  // Particle effects
+  for (let i = 0; i < particles.length; i += 1) {
+    if (particles[i]) {
+      particles[i].render()
+      particles[i].update()
+    }
+  }
+
   // Balloon
   balloon.show()
   shootingBalloon.show()
@@ -53,7 +61,15 @@ function gamePlay() {
       'rectangle'
     )
   ) {
-    score += 1
+    addScore(
+      1,
+      imgMoverStill,
+      {
+        x: runner.body.position.x,
+        y: runner.body.position.y,
+      },
+      30
+    )
     shootingBalloons.pop()
     runner.reload()
     balloon.reload()
@@ -69,7 +85,15 @@ function gamePlay() {
       'rectangle'
     )
   ) {
-    score -= 2
+    addScore(
+      -2,
+      imgHouse,
+      {
+        x: house.body.position.x,
+        y: house.body.position.y,
+      },
+      30
+    )
     loseLife()
 
     shootingBalloons.pop()

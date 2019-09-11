@@ -5,6 +5,7 @@
     "instructions1": "Drop the loons on the mover below!",
     "instructions2": "Hit or Miss and gain points!",
     "instructions3": "Arrow keys to move the shuttle, Click to drop loon.",
+    "gameStartedFloatingText": "Shoot the Jerry, Not your House!",
     "gameOverText": "GAME OVER",
     "gameTimer": "90",
     "highScoreText": "High Score:",
@@ -64,6 +65,11 @@
       {
         "key": "instructions3",
         "name": "Game Instructions 3",
+        "type": "text"
+      },
+      {
+        "key": "gameStartedFloatingText",
+        "name": "The floating text that appears after game starts.",
         "type": "text"
       },
       {
