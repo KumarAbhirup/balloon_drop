@@ -87,10 +87,7 @@ class GameObject {
       )
     }
 
-    if (
-      (this.settings.shape === 'circle' && shape === 'rectangle') ||
-      (this.settings.shape === 'rectangle' && shape === 'circle')
-    ) {
+    if (this.settings.shape === 'circle' && shape === 'rectangle') {
       circle = {
         x: this.body.position.x,
         y: this.body.position.y,
@@ -102,6 +99,23 @@ class GameObject {
         y: body.position.y,
         w: otherElement.sizing.width,
         h: otherElement.sizing.height,
+      }
+
+      return rectCircleColliding(circle, rectangle)
+    }
+
+    if (this.settings.shape === 'rectangle' && shape === 'circle') {
+      circle = {
+        x: body.position.x,
+        y: body.position.y,
+        r: otherElement.sizing.radius,
+      }
+
+      rectangle = {
+        x: this.body.position.x,
+        y: this.body.position.y,
+        w: this.sizing.width,
+        h: this.sizing.height,
       }
 
       return rectCircleColliding(circle, rectangle)

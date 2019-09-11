@@ -156,10 +156,10 @@ function instantiate() {
     }
   )
   house = new GameObject(
-    { x: width / 2, y: height - objSize * 3.4 },
-    { width: 6.5 * objSize, height: 7 * objSize },
+    { x: width / 2, y: height - objSize * 3 },
+    { radius: 3 * objSize },
     {
-      shape: 'rectangle',
+      shape: 'circle',
       image: imgHouse,
     }
   )

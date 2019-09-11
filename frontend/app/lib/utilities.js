@@ -18,27 +18,31 @@ function checkHighscore() {
  * @param {p5 Image Instance} particlesImage
  * @param {Object} particle - { x: null, y: null }
  * @param {Number} particleCount
+ * @param {Object} settings - { floatingText: false }
  */
 function addScore(
   amount,
   particlesImage,
   particle = { x: null, y: null },
-  particleCount = floor(random(2, 15))
+  particleCount = floor(random(2, 15)),
+  settings = { floatingText: true }
 ) {
   score += amount
 
-  floatingTexts.push(
-    new FloatingText(
-      particle.x,
-      particle.y - 0.75 * objSize * 0.5,
-      amount < 0 ? `${amount} 😭` : `+${amount}`,
-      amount < 0
-        ? Koji.config.colors.negativeFloatingTextColor
-        : Koji.config.colors.floatingTextColor,
-      objSize * 2,
-      2
+  if (settings.floatingText) {
+    floatingTexts.push(
+      new FloatingText(
+        particle.x,
+        particle.y - 0.75 * objSize * 0.5,
+        amount < 0 ? `${amount} 😭` : `+${amount}`,
+        amount < 0
+          ? Koji.config.colors.negativeFloatingTextColor
+          : Koji.config.colors.floatingTextColor,
+        objSize * 2,
+        2
+      )
     )
-  )
+  }
 
   // Spawn particles
   if (particle.y > 0) {

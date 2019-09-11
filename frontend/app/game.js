@@ -58,9 +58,20 @@ function gamePlay() {
         sizing: { width: house.sizing.width, height: house.sizing.height },
         body: house.body,
       },
-      'rectangle'
+      'circle'
     )
   ) {
+    floatingTexts.push(
+      new FloatingText(
+        runner.body.position.x,
+        runner.body.position.y,
+        random(comboTexts),
+        Koji.config.colors.floatingTextColor,
+        objSize * 1.4,
+        1.5
+      )
+    )
+
     addScore(
       1,
       imgMoverStill,
@@ -68,7 +79,8 @@ function gamePlay() {
         x: runner.body.position.x,
         y: runner.body.position.y,
       },
-      30
+      30,
+      { floatingText: false }
     )
     shootingBalloons.pop()
     runner.reload()
@@ -79,10 +91,10 @@ function gamePlay() {
   if (
     shootingBalloon.didTouch(
       {
-        sizing: { width: house.sizing.width, height: house.sizing.height },
+        sizing: { radius: house.sizing.radius },
         body: house.body,
       },
-      'rectangle'
+      'circle'
     )
   ) {
     addScore(
@@ -92,8 +104,10 @@ function gamePlay() {
         x: house.body.position.x,
         y: house.body.position.y,
       },
-      30
+      30,
+      { floatingText: true }
     )
+
     loseLife()
 
     shootingBalloons.pop()
