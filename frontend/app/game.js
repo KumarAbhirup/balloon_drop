@@ -56,14 +56,15 @@ function gamePlay() {
         body: runner.body,
       },
       'rectangle'
-    ) &&
-    !runner.didTouch(
-      {
-        sizing: { radius: house.sizing.radius },
-        body: house.body,
-      },
-      'circle'
     )
+    // &&
+    // !runner.didTouch(
+    //   {
+    //     sizing: { radius: house.sizing.radius },
+    //     body: house.body,
+    //   },
+    //   'circle'
+    // )
   ) {
     sndRunnerHit = loadSound(Koji.config.sounds.enemyHit, () =>
       playMusic(sndRunnerHit, 10, false)
@@ -227,6 +228,12 @@ function gamePlay() {
       lifeSize
     )
   }
+
+  // // Shoot button
+  // if (isMobile) {
+  //   shootButton.update()
+  //   shootButton.btn.draw()
+  // }
 
   cleanup()
 }

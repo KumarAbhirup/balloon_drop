@@ -27,6 +27,7 @@ let playButton
 let soundButton
 let leaderboardButton
 let endButton
+let shootButton
 
 // Score data
 let startingLives
@@ -207,6 +208,7 @@ function setup() {
   soundButton = new SoundButton()
   leaderboardButton = new LeaderboardButton()
   endButton = new EndButton()
+  shootButton = new ShootButton()
 
   gameBeginning = true
 
@@ -312,7 +314,8 @@ function touchEnded() {
   touching = false
 
   if (!gameOver && !gameBeginning) {
-    if (isMobile && !canEnd && !shootingBalloon.shooting) balloon.shoot() // shoot by release on mobile
+    if (isMobile && gameStart && !canEnd && !shootingBalloon.shooting)
+      balloon.shoot() // shoot by button click on mobile
   }
 }
 

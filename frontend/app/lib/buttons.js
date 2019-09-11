@@ -93,6 +93,58 @@ class PlayButton {
   }
 }
 
+class ShootButton {
+  constructor() {
+    this.btn = new Clickable()
+    this.btn.textSize = floor(objSize * 0.9)
+    this.btn.text = Koji.config.strings.shootButtonText
+    this.btn.textColor = Koji.config.colors.playButtonTextColor
+
+    this.size = createVector(this.btn.textWidth, this.btn.textSize)
+    this.pos = createVector(objSize / 2, objSize)
+
+    if (this.size.y > width) {
+      this.size.y = width
+    }
+
+    this.btn.resize(this.size.x, this.size.y)
+
+    this.btn.strokeWeight = 0
+
+    this.btn.onHover = function() {
+      this.color = Koji.config.colors.playButtonHoverColor
+    }
+
+    this.btn.onOutside = function() {
+      this.color = Koji.config.colors.playButtonColor
+    }
+
+    this.btn.onPress = function() {
+      this.color = Koji.config.colors.playButtonClickColor
+    }
+
+    this.btn.onRelease = function() {
+      if (isMobile && gameStart && !canEnd && !shootingBalloon.shooting)
+        balloon.shoot() // shoot by button click on mobile
+    }
+  }
+
+  update() {
+    // Resize button to fit text
+    this.size = createVector(this.btn.textWidth * 1.5, this.btn.textSize * 3)
+
+    if (this.size.y > width) {
+      this.size.y = width
+    }
+
+    this.btn.resize(this.size.x, this.size.y)
+
+    this.pos.x = width / 2 - this.size.x / 2
+    this.pos.y = height / 2 - this.size.y / 2 + objSize * 2
+    this.btn.locate(this.pos.x, this.pos.y)
+  }
+}
+
 class EndButton {
   constructor() {
     this.btn = new Clickable()
