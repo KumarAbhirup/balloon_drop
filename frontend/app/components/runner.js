@@ -13,6 +13,7 @@
   width
   objSize
   imgMoverStill
+  isMobile
 */
 
 class Runner extends GameObject {
@@ -22,7 +23,9 @@ class Runner extends GameObject {
 
   velocity = createVector(0, 0)
 
-  moveSpeed = 5
+  moveSpeed = isMobile ? 3 : 5
+
+  stillLimit = isMobile ? 1.5 : 2
 
   moveTimer = 0.1
 
@@ -40,9 +43,9 @@ class Runner extends GameObject {
 
     this.velocity.x = Smooth(this.velocity.x, this.goalVelocity.x, 1)
 
-    if (this.velocity.x < -2) {
+    if (this.velocity.x < -1 * this.stillLimit) {
       this.isMoving = 'left'
-    } else if (this.velocity.x > 2) {
+    } else if (this.velocity.x > this.stillLimit) {
       this.isMoving = 'right'
     } else {
       this.isMoving = null
