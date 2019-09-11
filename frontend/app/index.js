@@ -51,6 +51,7 @@ let sndTap
 let sndMatch
 let sndEnd
 let sndRunnerHit
+let sndHouseHit
 
 let soundEnabled = true
 let canMute = true
@@ -117,6 +118,8 @@ function preload() {
   if (Koji.config.sounds.end) sndEnd = loadSound(Koji.config.sounds.end)
   if (Koji.config.sounds.enemyHit)
     sndRunnerHit = loadSound(Koji.config.sounds.enemyHit)
+  if (Koji.config.sounds.explosion)
+    sndHouseHit = loadSound(Koji.config.sounds.explosion)
 
   // Load settings from Game Settings
   scoreGain = parseInt(Koji.config.strings.scoreGain)
@@ -211,7 +214,9 @@ function setup() {
    * This way the game will load faster
    */
   if (Koji.config.sounds.backgroundMusic)
-    sndMusic = loadSound(Koji.config.sounds.backgroundMusic, playMusic)
+    sndMusic = loadSound(Koji.config.sounds.backgroundMusic, () =>
+      playMusic(sndMusic, 0.4, false)
+    )
 }
 
 // An infinite loop that never ends in p5

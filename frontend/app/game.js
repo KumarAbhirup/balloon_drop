@@ -61,6 +61,10 @@ function gamePlay() {
       'circle'
     )
   ) {
+    sndRunnerHit = loadSound(Koji.config.sounds.enemyHit, () =>
+      playMusic(sndRunnerHit, 10, false)
+    )
+
     floatingTexts.push(
       new FloatingText(
         runner.body.position.x,
@@ -97,6 +101,10 @@ function gamePlay() {
       'circle'
     )
   ) {
+    sndHouseHit = loadSound(Koji.config.sounds.explosion, () =>
+      playMusic(sndHouseHit, 10, false)
+    )
+
     floatingTexts.push(
       new OldFloatingText(
         width / 2,
