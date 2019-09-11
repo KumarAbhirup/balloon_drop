@@ -32,6 +32,9 @@ function gamePlay() {
   balloon.show()
   shootingBalloon.show()
 
+  balloon.body.position.x += Smooth(0, 10, 2) * balloon.moveDir
+  shootingBalloon.body.position.x += Smooth(0, 10, 2) * shootingBalloon.moveDir
+
   // Runner
   runner.show()
   runner.moveRandomly()
@@ -165,9 +168,6 @@ function gamePlay() {
   // move by keys on desktop
   if (keyIsPressed) {
     if (keyCode === LEFT_ARROW) {
-      balloon.body.position.x -= Smooth(0, 10, 2)
-      shootingBalloon.body.position.x -= Smooth(0, 10, 2)
-
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = width
         shootingBalloon.body.position.x = width
@@ -175,9 +175,6 @@ function gamePlay() {
     }
 
     if (keyCode === RIGHT_ARROW) {
-      balloon.body.position.x += Smooth(0, 10, 2)
-      shootingBalloon.body.position.x += Smooth(0, 10, 2)
-
       if (balloon.wentOutOfFrame()) {
         balloon.body.position.x = 0
         shootingBalloon.body.position.x = 0

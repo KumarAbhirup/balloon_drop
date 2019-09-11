@@ -317,6 +317,15 @@ function touchEnded() {
 // Key pressed and released
 function keyPressed() {
   if (!gameOver && !gameBeginning) {
+    if (keyCode === LEFT_ARROW) {
+      balloon.moveDir = -1
+      shootingBalloon.moveDir = -1
+    }
+
+    if (keyCode === RIGHT_ARROW) {
+      balloon.moveDir = 1
+      shootingBalloon.moveDir = 1
+    }
   }
 }
 
@@ -324,6 +333,16 @@ function keyReleased() {
   if (!gameOver && !gameBeginning) {
     if (key === ' ' || keyCode === ENTER || keyCode === DOWN_ARROW) {
       if (!canEnd && !shootingBalloon.shooting) balloon.shoot() // shoot by keys on desktop
+    }
+
+    if (keyCode === LEFT_ARROW && balloon.moveDir === -1) {
+      balloon.moveDir = 0
+      shootingBalloon.moveDir = 0
+    }
+
+    if (keyCode === RIGHT_ARROW && balloon.moveDir === 1) {
+      balloon.moveDir = 0
+      shootingBalloon.moveDir = 0
     }
   }
 }

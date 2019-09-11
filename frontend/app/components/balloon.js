@@ -16,6 +16,8 @@
 class Balloon extends GameObject {
   shooting = false
 
+  moveDir = 0
+
   shoot = () => {
     shootingBalloon.shooting = true
     shootingBalloons.push(shootingBalloon)
