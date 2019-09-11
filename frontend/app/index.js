@@ -321,6 +321,7 @@ function keyReleased() {
   if (!gameOver && !gameBeginning) {
     if (key === ' ' || keyCode === ENTER || keyCode === DOWN_ARROW) {
       if (!canEnd && !shootingBalloon.shooting) balloon.shoot() // shoot by keys on desktop
+      balloon.dir = 0
     }
   }
 }

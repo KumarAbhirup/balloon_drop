@@ -16,6 +16,20 @@
 class Balloon extends GameObject {
   shooting = false
 
+  dir = 0
+
+  update = () => {
+    if (balloon.dir === -1) {
+      balloon.body.position.x -= Smooth(0, 10, 2)
+      shootingBalloon.body.position.x -= Smooth(0, 10, 2)
+    }
+
+    if (balloon.dir === 1) {
+      balloon.body.position.x += Smooth(0, 10, 2)
+      shootingBalloon.body.position.x += Smooth(0, 10, 2)
+    }
+  }
+
   shoot = () => {
     shootingBalloon.shooting = true
     shootingBalloons.push(shootingBalloon)
