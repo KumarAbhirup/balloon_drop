@@ -1,3 +1,4 @@
+/* eslint-disable no-global-assign */
 /* eslint-disable no-unused-vars */
 /*
   global
@@ -7,6 +8,11 @@
   createVector
   random
   Smooth
+  runner
+  height
+  width
+  objSize
+  imgMoverStill
 */
 
 class Runner extends GameObject {
@@ -48,5 +54,17 @@ class Runner extends GameObject {
     )
 
     this.body.position.add(this.velocity)
+  }
+
+  reload = () => {
+    runner = null
+    runner = new Runner(
+      { x: width / 2, y: height - objSize * 2 },
+      { width: 3 * objSize, height: 4 * objSize },
+      {
+        shape: 'rectangle',
+        image: imgMoverStill,
+      }
+    )
   }
 }

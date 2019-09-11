@@ -55,6 +55,7 @@ function gamePlay() {
   ) {
     score += 1
     shootingBalloons.pop()
+    runner.reload()
     balloon.reload()
   }
 
