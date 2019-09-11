@@ -5,6 +5,9 @@
     "instructions1": "Drop loons on Jerry and Save the house!",
     "instructions2": "Hit or Miss and gain points!",
     "instructions3": "Arrow keys to move the shuttle, Enter to drop loon.",
+    "mobileInstructions1": "Drop loons on Jerry and Save the house!",
+    "mobileInstructions2": "Hit or Miss and gain points!",
+    "mobileInstructions3": "Drag the loon and release to shoot!",
     "gameStartedFloatingText": "Shoot the Jerry, Not your House!",
     "balloonCollidedHouse": "Wudjyu ever shoot your own house?",
     "gameOverText": "GAME OVER",
@@ -55,17 +58,32 @@
       },
       {
         "key": "instructions1",
-        "name": "Game Instructions 1",
+        "name": "Desktop Game Instructions 1",
         "type": "text"
       },
       {
         "key": "instructions2",
-        "name": "Game Instructions 2",
+        "name": "Desktop Game Instructions 2",
         "type": "text"
       },
       {
         "key": "instructions3",
-        "name": "Game Instructions 3",
+        "name": "Desktop Game Instructions 3",
+        "type": "text"
+      },
+      {
+        "key": "mobileInstructions1",
+        "name": "Mobile Game Instructions 1",
+        "type": "text"
+      },
+      {
+        "key": "mobileInstructions2",
+        "name": "Mobile Game Instructions 2",
+        "type": "text"
+      },
+      {
+        "key": "mobileInstructions3",
+        "name": "Mobile Game Instructions 3",
         "type": "text"
       },
       {
