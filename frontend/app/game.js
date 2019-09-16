@@ -15,7 +15,7 @@ function gamePlay() {
   if (runner.isMoving === 'left') runner.settings.image = imgMoverLeft
   if (runner.isMoving === 'right') runner.settings.image = imgMoverRight
 
-  // Draw Timer!
+  // Draw Timer! (Comment this blob of code if you don't want timer)
   if (gameTimerEnabled) {
     gameTimer -= 1 / frameRate()
     drawTimer()

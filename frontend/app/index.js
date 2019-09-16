@@ -336,7 +336,12 @@ function keyPressed() {
 
 function keyReleased() {
   if (!gameOver && !gameBeginning) {
-    if (key === ' ' || keyCode === ENTER || keyCode === DOWN_ARROW || key === 's') {
+    if (
+      key === ' ' ||
+      keyCode === ENTER ||
+      keyCode === DOWN_ARROW ||
+      key === 's'
+    ) {
       if (!canEnd && !shootingBalloon.shooting) balloon.shoot() // shoot by keys on desktop
     }
 

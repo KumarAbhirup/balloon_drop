@@ -54,6 +54,13 @@ function addScore(
   }
 }
 
+/**
+ *
+ * @param {p5 Image Instance} particlesImage
+ * @param {object} particle - { x: null, y: null }
+ * @param {*} particleCount
+ * @param {Number} particleCount
+ */
 function particlesEffect(
   particlesImage,
   particle = { x: null, y: null },
